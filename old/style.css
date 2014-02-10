@@ -1,0 +1,93 @@
+* {
+    font-family: sans-serif;
+}
+
+body {
+    background-color: black;
+    color: gray;
+}
+
+#container {
+    width: 470px;
+    height: 430px;
+}
+
+#refresh, #restart {
+    color: gray;
+    padding: 3px;
+    border: 1px solid gray;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#refresh:hover, #restart:hover {
+    background-color: #111;
+}
+
+#refresh:active, #restart:active {
+    background-color: #222;
+}
+
+#restart {
+    margin-right: 10px;
+}
+
+#speed {
+    background-color: #111;
+    color: gray;
+    border: 1px solid #222;
+}
+
+#help {
+    cursor: help;
+    color: #333;
+    margin-right: 25px;
+    float: right;
+}
+
+#canvas {
+    border: 1px solid #222;
+    margin: 5px;
+}
+
+#code {
+    font-family: monospace;
+    margin: 5px;
+    background-color: #111;
+    color: gray;
+    border: 1px solid #222;
+}
+
+#examples {
+    background-color: #111;
+    color: gray;
+    width: 170px;
+    height: 257px;
+    margin-bottom: 12px;
+}
+
+.helptext {
+    z-index: 1;
+    background-color: #222;
+    position: absolute;
+    padding: 5px;
+    left: 13px;
+
+    color: gray;
+    display: none;
+}
+
+.helptext.one {
+    top: 13px;
+
+    width: 247px;
+    height: 247px;
+
+    opacity: 0.8;
+}
+
+.helptext.two {
+    top: 288px;
+    width: 429px;
+    height: 69px;
+}

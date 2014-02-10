@@ -1,0 +1,35 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="fastpix.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvas" width="256" height="256"></canvas>
+        <select id="examples" size="3"></select><br>
+        <textarea id="code" cols="60" rows="5" name="code" spellcheck="false"></textarea>
+        <p>
+            <a id="refresh">REFRESH!</a>
+            <a id="restart">RESTART!</a>
+            Speed: <input id="speed" type="number" value="1"></input>
+            <a id="help">[wut?]</a>
+        </p>
+    </div>
+
+    <div class="helptext one">
+        <h1>equatio</h1>
+        <p>An interactive browser experiment by nucular</p>
+        You can enter a simple JavaScript expression into the text field below. It will be called for every pixel which will be coloured depending on the result.
+        <p>Look at the examples and then mess around and have fun!</p>
+    </div>
+
+    <div class="helptext two">
+        These variables are predefined:<br>
+        <small>Pixel position: (x, y) ; Mouse position: (mx, my)<br>
+        Mouse button state: md ; Mouse position before pressed: (mdx, mdy)<br>
+        Mouse position delta: (dx, dy) ; Time: t ; Time speed: td</small>
+    </div>
+</body>
+</html>
