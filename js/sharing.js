@@ -6,7 +6,7 @@ E.sharing.set = function(name, value) {
         case "gfx":
             E.graphics.toggle(value); break;
         case "sfx":
-            E.audio.toggle(value); break;
+            E.sound.toggle(value); break;
         case "gfxcode":
             E.graphics.setCode(value); break;
         case "sfxcode":
