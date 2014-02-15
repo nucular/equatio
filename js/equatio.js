@@ -1,18 +1,41 @@
 // This is the main object!
 var E = {};
 
-// And this the main initialization function!
+// The predefined variables
+E.vars = {
+    t: 0,
+    td: 1,
+    x: 0, y: 0,
+    mx: 0, my: 0,
+    mld: 0, mrd: 0
+}
+
+E.paused = false;
+
+// Main initialization function
 $(function() {
     E.polyfill();
     E.sharing.load();
-    requestAnimationFrame(E.update);
 
-    // And connect all the event handlers
+    // Connect all the event handlers
     $("#sharebutton").bind("click", E.sharing.share);
+    $("#playbutton").bind("click", function() {E.toggle();});
+    $("#backbutton").bind("click", E.back);
+
+    // Start
+    requestAnimationFrame(E.update);
 });
 
+// Main update function
 E.update = function() {
-    //
+    E.vars.t += E.vars.td;
+
+    if (Math.round(E.vars.t) % 60 == 0) {
+        $("#time").text((E.vars.t / 60) + " sec");
+    }
+
+    if (!E.paused)
+        requestAnimationFrame(E.update);
 }
 
 // A polyfill for requestAnimationFrame written by Paul Irish
@@ -41,6 +64,18 @@ E.polyfill = function() {
         }
 }
 
-E.setCode = function(c) {
-    //
+E.toggle = function(bool) {
+    if (!bool)
+        bool = !E.paused;
+
+    if (bool != E.paused && E.paused)
+        requestAnimationFrame(E.update);
+
+    E.paused = bool;
+    $("#playbutton")[0].src = bool ? "img/play.png" : "img/pause.png";
+}
+
+E.back = function() {
+    E.vars.t = 0;
+    $("#time").text("0 sec");
 }

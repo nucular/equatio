@@ -4,13 +4,14 @@
     <title>equatio &middot; by nucular</title>
     <script src="3rd/jquery.min.js"></script>
     <script src="3rd/Audiolet.min.js"></script>
+    <script src="3rd/simple-slider.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="3rd/simple-slider.css"/>
 
     <script src="js/equatio.js"></script>
     <script src="js/sound.js"></script>
     <script src="js/graphics.js"></script>
     <script src="js/sharing.js"></script>
     <script src="js/base64.js"></script>
-
     <link rel="stylesheet" type="text/css" href="css/equatio.css"/>
     <!--<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700italic' rel='stylesheet' type='text/css'>-->
 </head>
@@ -21,19 +22,27 @@
 
             <div id="wrapper">
                 <div class="side left">
-                    <input type="checkbox" id="gfxactive"> Activate graphics
-                    <textarea id="gfxcode"></textarea>
+                    Graphics expression:<br>
+                    <textarea id="gfxcode" rows="5"></textarea><br>
+                    Sound expression:<br>
+                    <textarea id="sfxcode" rows="5"></textarea>
                 </div>
 
                 <canvas id="screen" width="256" height="256"></canvas>
 
                 <div class="side right">
-                    <input type="checkbox" id="sfxactive"> Activate sound
-                    <textarea id="sfxcode"></textarea>
+                    <input type="checkbox" id="gfxactive" class="checkbox"> Activate graphics output
+                    <br>
+                    <input type="checkbox" id="sfxactive" class="checkbox"> Activate sound output
                 </div>
             </div>
-            <a id="sharebutton">Share!</a>
-            
+
+            <div id="bar" class="center">
+                <img id="playbutton" src="img/pause.png"></img>
+                <img id="backbutton" src="img/back.png"></img>
+                <small id="time">0 sec</small>
+                <a id="sharebutton">Share!</a>
+            </div>
         </div>
 
         <footer>

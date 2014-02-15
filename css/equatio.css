@@ -1,6 +1,7 @@
 body {
     background-image: url(../img/bg.jpg);
     font-family: 'Ubuntu', sans-serif;
+    font-size: 11pt;
 }
 
 
@@ -50,7 +51,8 @@ a {
     background-color: #999;
     padding: 10px;
     border: 2px solid #222;
-    border-radius: 30px;
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
     box-shadow: 2px 2px 10px 0px #222;
 }
 
@@ -67,19 +69,17 @@ a {
 
 .inner textarea {
     background-color: #888;
-    border-color: #444;
-    border-radius: 3px;
-    width: 96%;
-    min-width: 96%;
-    max-width: 96%;
+    border: 1px solid #444;
+    width: 94%;
+    min-width: 94%;
+    max-width: 94%;
 }
 
 
 
 #screen {
     background-color: black;
-    border: 2px solid #999;
-    border-radius: 10px;
+    border: 2px solid #888;
     box-shadow: 2px 2px 20px #111;
 
     width: 256px;
@@ -98,34 +98,124 @@ a {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 
-    width: 30%;
-    border: 1px dashed magenta;
+    width: 200px;
+    display: inline-block;
+    border: 1px solid pink;
 }
 
 .side.left {
     float: left;
     text-align: left;
+    font-size: 10pt;
+
+    height: 259px;
+    max-height: 259px;
+    overflow: auto;
+
+    margin-right: 5px;
 }
 
 .side.right {
     float: right;
     text-align: left;
+
+    height: 259px;
+    max-height: 259px;
 }
 
 
 
 #wrapper {
     width: 100%;
-    border: 1px dashed green;
     position: relative;
     margin: 0;
     padding: 0;
+    overflow: visible;
 
     text-align: left;
+    white-space: nowrap;
 }
 
 #wrapper:after {
     content: "";
     display: block;
     clear: both;
+}
+
+
+
+#bar {
+    background-color: #777;
+    width: 200px;
+    height: 20px;
+
+    margin-top: -4px;
+    padding: 5px;
+
+    text-align: left;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#bar small {
+    color: #333;
+}
+
+
+#sharebutton {
+    border-bottom: none;
+    float: right;
+    margin-top: 1px;
+    color: rgb(155, 222, 0);
+}
+
+#sharebutton:hover {
+    opacity: 0.8;
+}
+
+
+#playbutton {
+    margin-bottom: -2px;
+    margin-top: 0px;
+
+    cursor: pointer;
+    float: left;
+
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+
+#playbutton:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in;
+}
+
+
+#backbutton {
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    float: left;
+
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+
+#backbutton:hover {
+    opacity: 0.8;
+}
+
+
+
+.checkbox {
+    position: relative;
+    top: 2px;
+}
+
+
+
+.slider {
+    width: 40px;
+    max-width: 40px;
+    display: inline-block;
 }

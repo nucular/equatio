@@ -73,7 +73,7 @@ E.sharing.build = function() {
 // TODO: Add support for preview with v.gd?
 E.sharing.share = function() {
     var but = $("#sharebutton");
-    but.css("color", "#070").text("Please wait");
+    but.css("color", "#050").text("Please wait");
 
     function error() {
         but.css("color", "#900").text("Error");
@@ -86,7 +86,7 @@ E.sharing.share = function() {
     function(data, textStatus, jqXHR) {
         but.css("color", "inherit").text("Share!");
         if (data.shorturl)
-            prompt("Your link was created. Know you can copypaste it and share your creation with others:", data.shorturl);
+            prompt("Your link was created. Now you can copypaste it and share your creation with others:", data.shorturl);
         else
             error();
     }, error, false);
