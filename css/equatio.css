@@ -3,20 +3,36 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
+
+
 a {
     color: inherit;
-    text-decoration: underline;
+    border-bottom: 1px dotted #444;
+    text-decoration: none;
     transition: color 0.2s ease-out;
+    cursor: pointer;
 }
-a:hover {
-    color: white;
-    transition: color 0.2s ease-in;
+
+.outer a:hover {
+    color: #888;
+    border-bottom: 1px solid #777;
+    transition: color 0.2s ease-in,
+                border-bottom-color 0.4s ease-in;
 }
+.inner a:hover {
+    color: inherit;
+    border-bottom: 1px dotted #444;
+    transition: none;
+}
+
+
 
 .center {
     display: block;
     margin: auto;
 }
+
+
 
 .outer {
     width: 100%;
@@ -26,6 +42,8 @@ a:hover {
 .outer footer {
     color: #555;
 }
+
+
 
 .inner {
     width: 700px;
@@ -47,30 +65,67 @@ a:hover {
     text-decoration: italic;
 }
 
-#code {
-    background-color: #777;
+.inner textarea {
+    background-color: #888;
+    border-color: #444;
+    border-radius: 3px;
+    width: 96%;
+    min-width: 96%;
+    max-width: 96%;
 }
 
-#overlay {
-    position: relative;
-}
 
-#left {
-    float: left;
-}
 
-#right {
-    float: right;
-}
-
-canvas {
+#screen {
     background-color: black;
     border: 2px solid #999;
     border-radius: 10px;
     box-shadow: 2px 2px 20px #111;
-    display: block;
-    margin: auto;
 
     width: 256px;
     height: 256px;
+
+    margin: 0;
+    padding: 0;
+
+    display: inline-block;
+}
+
+
+
+.side {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    width: 30%;
+    border: 1px dashed magenta;
+}
+
+.side.left {
+    float: left;
+    text-align: left;
+}
+
+.side.right {
+    float: right;
+    text-align: left;
+}
+
+
+
+#wrapper {
+    width: 100%;
+    border: 1px dashed green;
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    text-align: left;
+}
+
+#wrapper:after {
+    content: "";
+    display: block;
+    clear: both;
 }

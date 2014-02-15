@@ -4,30 +4,36 @@
     <title>equatio &middot; by nucular</title>
     <script src="3rd/jquery.min.js"></script>
     <script src="3rd/Audiolet.min.js"></script>
-    <script src="js/audio.js"></script>
-    <script src="js/graphics.js"></script>
+
     <script src="js/equatio.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/graphics.js"></script>
+    <script src="js/sharing.js"></script>
+    <script src="js/base64.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/equatio.css"/>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700italic' rel='stylesheet' type='text/css'>
+    <!--<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700italic' rel='stylesheet' type='text/css'>-->
 </head>
 <body>
     <div class="outer center">
         <div class="inner center">
             <h1>equatio</h1>
 
-            <div id="left">
-                Here go some buttons and stuff
-            </div>
+            <div id="wrapper">
+                <div class="side left">
+                    <input type="checkbox" id="gfxactive"> Activate graphics
+                    <textarea id="gfxcode"></textarea>
+                </div>
 
-            <canvas width="256" height="256" class="center"></canvas>
-            <div id="overlay">
-            </div>
+                <canvas id="screen" width="256" height="256"></canvas>
 
-            <div id="right">
-                Here goes the example selector I guess
+                <div class="side right">
+                    <input type="checkbox" id="sfxactive"> Activate sound
+                    <textarea id="sfxcode"></textarea>
+                </div>
             </div>
-
+            <a id="sharebutton">Share!</a>
+            
         </div>
 
         <footer>

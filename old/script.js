@@ -1,12 +1,14 @@
 var canvas;
 var mx, my, md, mdx, mdy;
-var t, td, kx, ky;
+var t, td, kx, ky, c;
 
 var examples = {
     "simple grid": "(mx==x || my==y)*0xFF << 16 | (mx==x || my==y)*0xFF << 8 | (mx==x || my==y)*0xFF",
     "munching squares": "(x^y)*(t/100)",
     "munching triangles": "(x&y)*(t/100)",
-    "something 3Dish": "(my-y)^(my-y)-(255-y)*x/255 + mx"
+    "something 3Dish": "(my-y)^(my-y)-(255-y)*x/255 + mx",
+    "noise": "function(){var n=Math.random()*0xFF;return n<<16|n<<8|n;}()",
+    "mandelbrot": "function(){var it;var jx=jy=0.0;for(it=0;it<10&&jx*jx+jy*jy<=4;++it){var tmp=2*jx*jy;jx=jx*jx-jy*jy+(-2+3*x/255);jy=tmp+(-1+2*y/255);};return Math.pow(it,5);}()"
 };
 
 function calc(x, y) {
@@ -38,6 +40,7 @@ function refresh() {
 function restart() {
     td = parseInt($("#speed").val());
     t = 0;
+    c = {};
 }
 
 $(function() {
