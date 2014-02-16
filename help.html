@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>equatio &middot; help</title>
+    <link rel="stylesheet" type="text/css" href="css/equatio.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="outer center">
+        <div class="inner center">
+            <h1>help</h1>
+            <div id="helpcontent">
+                <b>Welcome to equatio!</b>
+                <p>
+                    This is an interactive web experiment inspired by such things like IBNIZ.<br>
+                    It's about creating fancy graphic patterns and sound using amazingly simple mathematical expressions. You can use predefined variables to add interactivity with the user to your creations, and even share them with others easily.
+                </p>
+                <b>Interface</b>
+                <p>
+                    If you look at the equatio application, you can see two textboxes where you can write your expression at the left side. The graphics/sound will change after the repective textbox loses the focus. Over them, there is a little label that will show you when your expression is invalid.<br>
+                    Under them, there are the <b>Share!</b> and <b>Reset!</b> buttons. The share button will create a shortlink to your current creation when clicked. The reset button will clear the text fields.<br><br>
+                    In the middle, there's a 256x256 pixels large screen where your graphics expression will be drawn. Under it is a bar with the play/pause and back buttons, a speed slider and a display with the current time and speed.<br><br>
+                    At the right side you can find the checkboxes to toggle the graphics and sound, a slider to set the sound volume and a list of examples you can look at to get inspiration.
+                </p>
+                <b>Writing expressions</b>
+                <p>
+                    The expressions are nothing but simple JavaScript. You don't need to learn it, but a bit knowledge about <a href="http://codeproject.com/Articles/2247/An-introduction-to-bitwise-operators" target="_new">bitwise operators</a> and <a href="http://w3schools.com/js/js_obj_math.asp" target="_new">math functions in JS</a> is quite useful.<br><br>
+                    The graphics expression will be called with changing <b>x</b> and <b>y</b> variables and is supposed to return an RGB number (you can calculate it using "<b>Blue</b> << 16 | <b>Green</b> << 8 | <b>Red</b>" where <b>Blue</b>,<b>Green</b>,<b>Red</b> should be numbers between 0 and 255).<br>Your code will get called for every pixel, 60 times per second, so better keep it simple and fast.<br><br>
+                    The sound expression is called for every sample, with a growing <b>s</b> variable. It should return a number between 0 and 256.<br><br>
+                    You can access more than only the x/y/s variables inside your expression. Here's a table with all of them.<br>
+                    <table>
+                        <tr>
+                            <td><b>x</b>, <b>y</b></td>
+                            <td>The position of the pixel that will be set to the calculated value. Only available inside the graphics expression.</td>
+                        </tr>
+                        <tr>
+                            <td><b>rd</b></td>
+                            <td>A random value between 0 and 256 that stays the same over the entire frame. Only available inside the graphics expression (use <b>Math.random</b>).
+                        </tr>
+                        <tr>
+                            <td><b>s</b></td>
+                            <td>The number of the sample which amplitude is set to the calculated value. Only available inside the sound expression.</td>
+                        </tr>
+                        <tr>
+                            <td><b>t</b></td>
+                            <td>The current time value. This number is increased by <b>td</b> every frame (60 times per second).</td>
+                        </tr>
+                        <tr>
+                            <td><b>td</b></td>
+                            <td>Time delta, <b>t</b> is increased by this number every frame.
+                        <tr>
+                            <td><b>mx</b>, <b>my</b></td>
+                            <td>The last registered position of the mouse inside the screen.</td>
+                        </tr>
+                        <tr>
+                            <td><b>mld</b>, <b>mmd</b>, <b>mrd</b></td>
+                            <td>These variables are set to 1 while the user holds down the left, middle or right mouse button inside the screen, respectively.</td>
+                        </tr>
+                    </table>
+                </p>
+            </div>
+        </div>
+        <footer>
+            Licensed under GNU GPL 3 &middot; <a href="http://github.com/nucular/equatio">Source repository</a> &middot; Hosted on GitHub Pages
+        </footer>
+    </div>
+</body>
+</html>

@@ -12,36 +12,49 @@
     <script src="js/graphics.js"></script>
     <script src="js/sharing.js"></script>
     <script src="js/base64.js"></script>
+    <script src="js/examples.js"></script>
     <link rel="stylesheet" type="text/css" href="css/equatio.css"/>
     <!--<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700italic' rel='stylesheet' type='text/css'>-->
 </head>
 <body>
     <div class="outer center">
         <div class="inner center">
-            <h1>equatio</h1>
+            <h1>equatio</h1><a id="helplink" target="_new" href="help.html">[help]</a>
 
-            <div id="wrapper">
-                <div class="side left">
-                    Graphics expression:<br>
-                    <textarea id="gfxcode" rows="5"></textarea><br>
-                    Sound expression:<br>
-                    <textarea id="sfxcode" rows="5"></textarea>
-                </div>
+            <table id="wrapper">
+                <tr>
+                    <td class="side left">
+                        Graphics expression<br>
+                        <span id="gfxerror" class="errortext">No error</span><br>
+                        <textarea id="gfxcode" rows="3"></textarea><br>
+                        Sound expression<br>
+                        <span id="sfxerror" class="errortext">No error</span><br>
+                        <textarea id="sfxcode" rows="3"></textarea><br>
+                        <a id="resetbutton" class="button">Reset!</a>
+                        <a id="sharebutton" class="button">Share!</a>
+                    </td>
 
-                <canvas id="screen" width="256" height="256"></canvas>
+                    <td>
+                        <canvas id="screen" width="256" height="256"></canvas>
+                    </td>
 
-                <div class="side right">
-                    <input type="checkbox" id="gfxactive" class="checkbox"> Activate graphics output
-                    <br>
-                    <input type="checkbox" id="sfxactive" class="checkbox"> Activate sound output
-                </div>
-            </div>
+                    <td class="side right">
+                        <p>
+                            <input type="checkbox" id="gfxactive" class="checkbox" checked="true"> Activate graphics output<br>
+                            <input type="checkbox" id="sfxactive" class="checkbox"> Activate sound output
+                        </p>
+                        Sound volume: <input id="volume" type="text" data-slider="true" data-slider-highlight="true"><br><br>
+                        Examples:<br>
+                        <select id="examples" size="3"></select>
+                    </td>
+                </tr>
+            </table>
 
             <div id="bar" class="center">
                 <img id="playbutton" src="img/pause.png"></img>
                 <img id="backbutton" src="img/back.png"></img>
-                <small id="time">0 sec</small>
-                <a id="sharebutton">Share!</a>
+                <input id="speed" type="text" data-slider="true" data-slider-range="-10,10">
+                <span id="time">0 sec</span><br><span id="speedview">1x</span>
             </div>
         </div>
 

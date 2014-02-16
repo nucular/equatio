@@ -6,11 +6,25 @@ E.sharing.set = function(name, value) {
         case "gfx":
             E.graphics.toggle(value); break;
         case "sfx":
-            E.sound.toggle(value); break;
+            E.sound.set(value); break;
         case "gfxcode":
-            E.graphics.setCode(value); break;
+            E.graphics.setCode(value);
+            $("#gfxcode")[0].value = value;
+            break;
         case "sfxcode":
-            E.sound.setCode(value); break;
+            E.sound.setCode(value);
+            $("#sfxcode")[0].value = value;
+            break;
+        case "paused":
+            E.pause(value); break;
+        case "volume":
+            E.sound.setVolume(value); break;
+        case "td":
+            E.setSpeed(value); break;
+        case "t":
+            E.vars.t = value;
+            $("#time").text(Math.floor(value / 60) + " sec");
+            break;
     }
 }
 
@@ -32,12 +46,11 @@ E.sharing.load = function() {
         else if (value == "true")
             value = true
         else {
-            try {
-                value = parseInt(value);
-            }
-            catch (e) {
-                value = E.base64.decode(value);
-            }
+            nvalue = parseFloat(value);
+            if (isNaN(nvalue))
+                value = E.base64.decode(decodeURIComponent(value));
+            else
+                value = nvalue;
         }
 
         console.log(name, value);
@@ -55,16 +68,21 @@ E.sharing.shorten = function(url, callback, error, preview) {
 E.sharing.build = function() {
     var url = document.location.origin + document.location.pathname + "?";
 
-    url += "gfx=" + $("#gfxactive")[0].checked;
-    url += "&sfx=" + $("#sfxactive")[0].checked;
+    url += "gfx=" + E.graphics.active;
+    url += "&sfx=" + E.sound.active;
 
     var gfxcode = $("#gfxcode").val();
-    if (gfxcode != "")
+    if (gfxcode != "" && E.graphics.active)
         url += "&gfxcode=" + encodeURIComponent(E.base64.encode(gfxcode));
 
     var sfxcode = $("#sfxcode").val();
-    if (sfxcode != "")
+    if (sfxcode != "" && E.sound.active)
         url += "&sfxcode=" + encodeURIComponent(E.base64.encode(sfxcode));
+
+    url += "&paused=" + E.paused;
+    url += "&volume=" + E.sound.gain.value.getValue();
+    url += "&td=" + E.vars.td;
+    url += "&t=" + E.vars.t;
 
     return url;
 }
@@ -78,15 +96,17 @@ E.sharing.share = function() {
     function error() {
         but.css("color", "#900").text("Error");
         setTimeout(function() {
-            but.css("color", "inherit").text("Share!");
+            but.css("color", "#333").text("Share!");
         }, 2000);
     }
 
     var url = E.sharing.shorten(E.sharing.build(),
     function(data, textStatus, jqXHR) {
-        but.css("color", "inherit").text("Share!");
+        but.css("color", "#333").text("Share!");
         if (data.shorturl)
-            prompt("Your link was created. Now you can copypaste it and share your creation with others:", data.shorturl);
+            prompt("Your link was created. You can copypaste it and share your \
+creation with others.\n\nTip: Append a '-' at the end of this URL to show a \
+preview before redirecting to equatio.", data.shorturl);
         else
             error();
     }, error, false);
