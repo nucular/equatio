@@ -26,7 +26,7 @@ $(function() {
         $("#speed").simpleSlider("setValue", 1);
         $("#volume").simpleSlider("setValue", 0.5);
         E.sharing.load();
-    }, 200)
+    }, 500)
     
     // Connect all the event handlers
     $("#sharebutton").bind("click", E.sharing.share);

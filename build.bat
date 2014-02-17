@@ -1,1 +1,1 @@
-java -jar C:/closure/compiler.jar --js js/base64.js --js js/draw.js --js js/examples.js --js js/graphics.js --js js/sharing.js --js js/sound.js --js js/equatio.js --js_output_file build/equatio.js --compilation_level ADVANCED_OPTIMIZATIONS
+java -jar C:/closure/compiler.jar --js js/equatio.js --js js/examples.js --js js/graphics.js --js js/sharing.js --js js/sound.js --js_output_file build/equatio.js
