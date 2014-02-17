@@ -5,9 +5,10 @@ E.examples = {};
 E.examples.list = {
     "munching squares": ["(x^y)*(t/100)"],
     "munching triangles": ["(x&y)*(t/100)"],
-    "noise": ["(function(){var n=Math.random()*0xFF;return n<<16|n<<8|n;})()", "Math.random()*25", 1, 0.3],
+    "noise": ["(function(){var n=Math.random()*0xFF;return n<<16|n<<8|n;})()", "Math.random()*255", 1, 0.3],
     "mandelbrot": ["(function(){var it;var jx=jy=0.0;for(it=0;it<10&&jx*jx+jy*jy<=4;++it){var tmp=2*jx*jy;jx=jx*jx-jy*jy+(-2+3*x/255);jy=tmp+(-1+2*y/255);};return Math.pow(it,5);})()"],
-    "unnamed1": ["x<<t>>y", "s<<t>>s", 1, 0.3]
+    "unnamed1": ["x<<t>>y", "s<<t>>s", 1, 0.3],
+    "tejeez": ["(((50*s)/50)*(((50*s)/50)>>5|(s)>>8))>>((50*s/50)>>16)*(x^y)", "(((50*s)/50)*(((50*s)/50)>>5|(s)>>8))>>((50*s/50)>>16)"]
 };
 
 E.examples.load = function() {
