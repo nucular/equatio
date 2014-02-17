@@ -50,7 +50,7 @@ E.sharing.load = function() {
         else {
             nvalue = parseFloat(value);
             if (isNaN(nvalue))
-                value = E.base64.decode(decodeURIComponent(value));
+                value = decodeURIComponent(value);
             else
                 value = nvalue;
         }
@@ -75,15 +75,15 @@ E.sharing.build = function() {
 
     var gfxcode = $("#gfxcode").val();
     if (gfxcode != "" && E.graphics.active)
-        url += "&gfxcode=" + encodeURIComponent(E.base64.encode(gfxcode));
+        url += "&gfxcode=" + encodeURIComponent(gfxcode);
 
     var sfxcode = $("#sfxcode").val();
     if (sfxcode != "" && E.sound.active)
-        url += "&sfxcode=" + encodeURIComponent(E.base64.encode(sfxcode));
+        url += "&sfxcode=" + encodeURIComponent(sfxcode);
 
     url += "&paused=" + E.paused;
-    url += "&volume=" + E.sound.gain.value.getValue();
-    url += "&td=" + E.vars.td;
+    url += "&volume=" + Math.round(E.sound.gain.value.getValue()*100)/100;
+    url += "&td=" + Math.round(E.vars.td*100)/100;
     url += "&t=" + E.vars.t;
     url += "&s=" + E.vars.s;
 
@@ -107,10 +107,17 @@ E.sharing.share = function() {
     function(data, textStatus, jqXHR) {
         but.css("color", "#333").text("Share!");
         if (data.shorturl)
-            prompt("Your link was created. You can copypaste it and share your \
+            prompt("Your link was shortened. You can copypaste it and share your \
 creation with others.\n\nTip: Append a '-' at the end of this URL to show a \
 preview before redirecting to equatio.", data.shorturl);
         else
             error();
     }, error, false);
+}
+
+// Show a popup with the unshortened link
+E.sharing.showURL = function() {
+    var url = E.sharing.build();
+    prompt("You can copypaste this link to store your creation or share it with \
+others.\n\nTip: Click on the 'Share!' button instead to generate a shortened version of this link.", url);
 }

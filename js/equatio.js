@@ -30,7 +30,9 @@ $(function() {
     
     // Connect all the event handlers
     $("#sharebutton").bind("click", E.sharing.share);
+    $("#urlbutton").bind("click", E.sharing.showURL);
     $("#resetbutton").bind("click", E.reset)
+
     $("#playbutton").bind("click", function(e) {E.pause();});
     $("#backbutton").bind("click", E.back);
 
