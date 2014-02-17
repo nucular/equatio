@@ -25,6 +25,8 @@ E.sharing.set = function(name, value) {
             E.vars.t = value;
             $("#time").text(Math.floor(value / 60) + " sec");
             break;
+        case "s":
+            E.vars.s = value; break;
     }
 }
 
@@ -83,6 +85,7 @@ E.sharing.build = function() {
     url += "&volume=" + E.sound.gain.value.getValue();
     url += "&td=" + E.vars.td;
     url += "&t=" + E.vars.t;
+    url += "&s=" + E.vars.s;
 
     return url;
 }
