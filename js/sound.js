@@ -60,11 +60,14 @@ E.sound.setCode = function(c) {
     var code = "var s = E.vars.s, t = E.vars.t, td = E.vars.td, mx = E.vars.mx, my = E.vars.my;\
         var mld = E.vars.mld, mrd = E.vars.mrd, mmd = E.vars.mmd;\
         var output = this.outputs[0];\
+        E.output = output;\
         for (var i = 0; i < output.samples.length; i++) {\
             output.samples[i] = (" + c + ") % 256 / 256;\
-            s++;\
+            s += td;\
         }\
-        E.vars.s = s;";
+        E.vars.s = s;\
+        if (output.samples.length >= 1)\
+            E.vars.v = (E.vars.v + output.samples[0]) / 2;";
 
     E.sound.EquatioNode.prototype.generate = new Function("inputBuffers", "outputBuffers", code);
 

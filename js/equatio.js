@@ -7,7 +7,8 @@ E.vars = {
     td: 1,
     x: 0, y: 0,
     mx: 0, my: 0,
-    mld: 0, mmd: 0, mrd: 0
+    mld: 0, mmd: 0, mrd: 0,
+    v: 1
 }
 
 E.paused = false;
