@@ -48,7 +48,7 @@ E.graphics.setCode = function(c) {
         }
     }
 
-    var code = "var s = E.vars.s, t = E.vars.t, td = E.vars.td, mx = E.vars.mx, my = E.vars.my;\
+    var code = "var s = E.vars.s, t = E.vars.t, td = E.vars.td, mx = E.vars.mx, my = E.vars.my, z = E.vars.z;\
         var rd = Math.random()*256, mld = E.vars.mld, mrd = E.vars.mrd, mmd = E.vars.mmd, v = E.vars.v;\
         for (var y = 0; y < 256; y++) {\
             for (var x = 0; x < 256; x++) {\

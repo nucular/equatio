@@ -57,7 +57,7 @@ E.sound.setCode = function(c) {
         }
     }
 
-    var code = "var s = E.vars.s, t = E.vars.t, td = E.vars.td, mx = E.vars.mx, my = E.vars.my;\
+    var code = "var s = E.vars.s, t = E.vars.t, td = E.vars.td, mx = E.vars.mx, my = E.vars.my, z = E.vars.z;\
         var mld = E.vars.mld, mrd = E.vars.mrd, mmd = E.vars.mmd;\
         var output = this.outputs[0];\
         E.output = output;\

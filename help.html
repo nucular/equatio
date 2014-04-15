@@ -28,7 +28,7 @@
                     The graphics expression will be called with changing <b>x</b> and <b>y</b> variables and is supposed to return an RGB number (you can calculate it using "<b>Blue</b> << 16 | <b>Green</b> << 8 | <b>Red</b>" where <b>Blue</b>,<b>Green</b>,<b>Red</b> should be numbers between 0 and 255).<br>Your code will get called for every pixel, 60 times per second, so better keep it simple and fast.<br><br>
                     The sound expression is called for every sample, with a growing <b>s</b> variable. It should return a number between 0 and 256.<br><br>
                     You can access more than only the x/y/s variables inside your expression. Here's a table with all of them.<br>
-                    <table>
+                    <table id="vartable">
                         <tr>
                             <td><b>x</b>, <b>y</b></td>
                             <td>The position of the pixel that will be set to the calculated value. Only available inside the graphics expression.</td>
@@ -55,6 +55,10 @@
                         <tr>
                             <td><b>mx</b>, <b>my</b></td>
                             <td>The last registered position of the mouse inside the screen.</td>
+                        </tr>
+                        <tr>
+                            <td><b>z</b></td>
+                            <td>Basically a zoom value. Gets incremented by one when the user scrolls upwards and decremented by one when he scrolls downwards.</td>
                         </tr>
                         <tr>
                             <td><b>mld</b>, <b>mmd</b>, <b>mrd</b></td>

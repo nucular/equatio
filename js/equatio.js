@@ -8,7 +8,8 @@ E.vars = {
     x: 0, y: 0,
     mx: 0, my: 0,
     mld: 0, mmd: 0, mrd: 0,
-    v: 1
+    v: 1,
+    z: 0
 }
 
 E.paused = false;
@@ -57,10 +58,16 @@ $(function() {
             E.vars.mmd = 0;
         else if (e.button == 2)
             E.vars.mrd = 0;
-    })
+    });
     $("#screen").bind("mouseleave", function(e) {
         E.mld = E.mmd = E.mrd = 0;
-    })
+    });
+    $("#screen").bind("mousewheel", function(e) {
+        if (e.originalEvent.wheelDelta / 120 > 0)
+            E.vars.z++;
+        else
+            E.vars.z--;
+    });
 
     // Disable context menu on the screen
     $("#screen").bind("contextmenu", function(e) {return false;});

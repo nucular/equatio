@@ -288,3 +288,14 @@ a {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+
+
+#vartable {
+    border-collapse: collapse;
+}
+
+#vartable td, th {
+    border: 1px solid #777;
+    padding: 5px;
+}
