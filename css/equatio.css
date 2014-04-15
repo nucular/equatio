@@ -278,3 +278,13 @@ a {
     color: #050;
     font-size: 80%;
 }
+
+
+
+#hint {
+    color: #333;
+    font-size: 90%;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
