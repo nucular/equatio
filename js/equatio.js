@@ -113,6 +113,9 @@ E.reset = function() {
     $("#sfxcode").text("");
     E.graphics.reset();
     E.sound.reset();
+
+    E.vars.v = 0;
+    E.vars.z = 0;
 }
 
 E.setSpeed = function(v) {
