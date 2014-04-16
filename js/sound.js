@@ -6,7 +6,7 @@ E.sound.active = false;
 E.sound.connected = false;
 
 E.sound.load = function() {
-    E.sound.audiolet = new Audiolet();
+    E.sound.audiolet = new Audiolet(44100, 1);
     E.sound.gain = new Gain(E.sound.audiolet);
     E.sound.node = new E.sound.EquatioNode(E.sound.audiolet);
     E.sound.node.connect(E.sound.gain);
