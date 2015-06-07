@@ -36,7 +36,7 @@ E.sound.set = function(bool) {
 }
 
 E.sound.setCode = function(c) {
-    $("#sfxerror").css("color", "#050");
+    $("#sfxerror").css("color", "#295");
     if (c == "") {
         $("#sfxerror").text("No code");
         E.sound.reset();
@@ -52,7 +52,7 @@ E.sound.setCode = function(c) {
         if (!E.vars.hasOwnProperty(e.message.split(" ")[0]))
         {
             E.sound.reset();
-            $("#sfxerror").css("color", "#900").text(e.message);
+            $("#sfxerror").css("color", "#e22").text(e.message);
             return;
         }
     }
@@ -77,7 +77,7 @@ E.sound.setCode = function(c) {
     }
     catch (e) {
         E.sound.reset();
-        $("#sfxerror").css("color", "#900").text(e.message);
+        $("#sfxerror").css("color", "#e22").text(e.message);
     }
 }
 
@@ -86,7 +86,7 @@ E.sound.reset = function() {
 }
 
 E.sound.setVolume = function(v) {
-    $("#volume").simpleSlider("setValue", v);
+    $("#volume").val(v);
     E.sound.gain.value.setValue(v);
 }
 

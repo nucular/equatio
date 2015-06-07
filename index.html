@@ -4,8 +4,6 @@
     <title>equatio &middot; by nucular</title>
     <script src="3rd/jquery.min.js"></script>
     <script src="3rd/Audiolet.min.js"></script>
-    <script src="3rd/simple-slider.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="3rd/simple-slider.css"/>
 
     <!--<script src="js/equatio.js"></script>
     <script src="js/sound.js"></script>
@@ -47,7 +45,7 @@
                             <input type="checkbox" id="gfxactive" class="checkbox" checked="true"> Activate graphics output<br>
                             <input type="checkbox" id="sfxactive" class="checkbox"> Activate sound output
                         </p>
-                        Sound volume: <input id="volume" type="text" data-slider="true" data-slider-highlight="true"><br><br>
+                        Sound volume: <input id="volume" type="range" min="0" max="1" step="0.001"><br><br>
                         Examples:<br>
                         <select id="examples" size="3"></select>
                     </td>
@@ -57,7 +55,7 @@
             <div id="bar" class="center">
                 <img id="playbutton" src="img/pause.png"></img>
                 <img id="backbutton" src="img/back.png"></img>
-                <input id="speed" type="text" data-slider="true" data-slider-range="-10,10">
+                <input id="speed" type="range" val="1" min="-2" max="2" step="0.001">
                 <span id="time">0 sec</span><br><span id="speedview">1x</span>
             </div>
         </div>
