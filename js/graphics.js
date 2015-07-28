@@ -26,7 +26,7 @@ E.graphics.draw = function() {
 }
 
 E.graphics.setCode = function(c) {
-    $("#gfxerror").css("color", "#050");
+    $("#gfxerror").css("color", "#295");
     if (c == "") {
         $("#gfxerror").text("No code");
         E.graphics.reset();
@@ -43,7 +43,7 @@ E.graphics.setCode = function(c) {
         if (!E.vars.hasOwnProperty(a) && a != "rd")
         {
             E.graphics.reset();
-            $("#gfxerror").css("color", "#900").text(e.message);
+            $("#gfxerror").css("color", "#e22").text(e.message);
             return;
         }
     }
@@ -69,7 +69,7 @@ E.graphics.setCode = function(c) {
     }
     catch (e) {
         E.graphics.reset();
-        $("#gfxerror").css("color", "#900").text(e.message);
+        $("#gfxerror").css("color", "#e22").text(e.message);
     }
 }
 

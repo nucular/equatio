@@ -23,13 +23,6 @@ $(function() {
     E.graphics.load();
     E.sound.load();
 
-    // Bug
-    setTimeout(function() {
-        $("#speed").simpleSlider("setValue", 1);
-        $("#volume").simpleSlider("setValue", 0.5);
-        E.sharing.load();
-    }, 500)
-    
     // Connect all the event handlers
     $("#sharebutton").bind("click", E.sharing.share);
     $("#urlbutton").bind("click", E.sharing.showURL);
@@ -82,14 +75,13 @@ $(function() {
         else
             E.sound.active = $("#sfxactive")[0].checked;
     });
-    $("#volume").bind("change", function(e) {E.sound.gain.value.setValue(e.value);});
-    $("#speed").bind("change", function(e) {E.setSpeed(e.value);});
+    $("#volume").bind("change", function(e) {E.sound.gain.value.setValue(Number(this.value));});
+    $("#speed").bind("change", function(e) {E.setSpeed(Number(this.value));});
 
-    $("#gfxcode").bind("blur", function(e) {E.graphics.setCode(e.target.value)});
-    $("#sfxcode").bind("blur", function(e) {E.sound.setCode(e.target.value)});
+    $("#gfxcode").bind("change", function(e) {E.graphics.setCode(e.target.value)});
+    $("#sfxcode").bind("change", function(e) {E.sound.setCode(e.target.value)});
 
-    // Start
-    requestAnimationFrame(E.update);
+    E.pause(true);
 });
 
 // Main update function
@@ -120,7 +112,7 @@ E.reset = function() {
 
 E.setSpeed = function(v) {
     $("#speedview").text(Math.round(v*10)/10 + "x");
-    $("#speed").simpleSlider("setValue", v);
+    $("#speed").val(v);
     E.vars.td = v;
 }
 

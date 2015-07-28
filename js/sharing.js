@@ -94,18 +94,18 @@ E.sharing.build = function() {
 // TODO: Add support for preview with v.gd?
 E.sharing.share = function() {
     var but = $("#sharebutton");
-    but.css("color", "#050").text("Please wait");
+    but.css("color", "#295").text("Please wait");
 
     function error() {
-        but.css("color", "#900").text("Error");
+        but.css("color", "#e22").text("Error");
         setTimeout(function() {
-            but.css("color", "#333").text("Share!");
+            but.css("color", "#ccc").text("Share!");
         }, 2000);
     }
 
     var url = E.sharing.shorten(E.sharing.build(),
     function(data, textStatus, jqXHR) {
-        but.css("color", "#333").text("Share!");
+        but.css("color", "#ccc").text("Share!");
         if (data.shorturl)
             prompt("Your link was shortened. You can copypaste it and share your \
 creation with others.\n\nTip: Append a '-' at the end of this URL to show a \
